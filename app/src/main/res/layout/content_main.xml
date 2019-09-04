@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_for_fragments"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <!--<LinearLayout
+                android:id="@+id/ll_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginLeft="3dp"
+                        android:background="@color/lightGray"
+                        android:drawableLeft="@drawable/ic_search"
+                        android:hint="@string/What_are_you_looking_for" />
+
+                </LinearLayout>&lt;!&ndash;search bar&ndash;&gt;
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:gravity="top"
+                        android:text="@string/Deal_of_the_Day"
+                        android:textSize="20dp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_dealoftheday"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:background="@color/colorGray" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="30% Cheese Off"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="$200 (60% off)"
+                            android:textSize="20dp" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/grey" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:drawableRight="@drawable/ic_next"
+                        android:gravity="center_vertical"
+                        android:text="@string/see_all_deals"
+                        android:textSize="15dp" />
+
+
+                </LinearLayout>&lt;!&ndash;part 1&ndash;&gt;
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/gradient" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:gravity="top"
+                        android:text="@string/categories"
+                        android:textSize="22dp" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_products"
+                        android:layout_width="match_parent"
+
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+                &lt;!&ndash; android:nestedScrollingEnabled="false"&ndash;&gt;
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+
+                        android:background="@drawable/grey" />
+
+                    <TextView
+                        android:id="@+id/seeAllDeals"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:drawableRight="@drawable/ic_next"
+                        android:gravity="center_vertical"
+                        android:text="@string/see_all_deals"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/gradient" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:gravity="top"
+                        android:text="@string/bestsellers"
+                        android:textSize="22dp" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_forBestSellers"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+
+                        android:background="@drawable/grey" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:drawableRight="@drawable/ic_next"
+                        android:gravity="center_vertical"
+                        android:text="@string/see_more"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_for_fragments"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+
+            </LinearLayout>-->
+
+
+
+        </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#919191</color>
+    <color name="colorAccent">#03A9F4</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorGray">#A7A3A3</color>
+    <color name="colorEtTuple">#919191</color>
+    <color name="colorblue">#03A9F4</color>
+    <color name="black">#000000</color>
+    <color name="lightGray">#B0E7E5E5</color>
+
+</resources>

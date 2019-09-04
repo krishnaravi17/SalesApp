@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="none"
+    tools:context=".Fragment.FragmentDashboard">
+
+    <LinearLayout
+        android:id="@+id/ll_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_2sdp"
+            app:cardElevation="@dimen/_3sdp">
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_marginLeft="3dp"
+                android:background="@color/lightGray"
+                android:drawableLeft="@drawable/ic_search"
+                android:drawablePadding="@dimen/_10sdp"
+                android:hint="@string/What_are_you_looking_for"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="10dp" />
+
+        </android.support.v7.widget.CardView><!--search bar-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_2sdp"
+            app:cardElevation="@dimen/_3sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:gravity="top"
+                    android:text="@string/Deal_of_the_Day"
+                    android:textSize="@dimen/_18sdp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_dealoftheday"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:background="@drawable/picheader" />
+
+                    <TextView
+                        android:id="@+id/tv_percentage_off"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="30% Cheese Off"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_price_after_discount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="$117.00"
+                            android:textSize="@dimen/_15sdp" />
+
+                        <TextView
+                            android:id="@+id/tv_actual_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_12sdp"
+                            android:gravity="center"
+                            android:text="$200.00"
+                            android:textSize="@dimen/_15sdp" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            android:gravity="center"
+                            android:paddingLeft="5dp"
+                            android:text="(60% off)"
+                            android:textSize="@dimen/_15sdp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#000000" />
+
+                <TextView
+                    android:id="@+id/seeAllDealsHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawableRight="@drawable/ic_next"
+                    android:gravity="center_vertical"
+                    android:text="@string/see_all_deals"
+                    android:textSize="@dimen/_14sdp" />
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@drawable/gradient" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_2sdp"
+            app:cardElevation="@dimen/_3sdp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:gravity="top"
+                    android:text="@string/fcategories"
+                    android:textSize="@dimen/_18sdp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_products"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#000000" />
+
+                <TextView
+                    android:id="@+id/seeAllCategories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawableRight="@drawable/ic_next"
+                    android:gravity="center_vertical"
+                    android:text="@string/see_all_categories"
+                    android:textSize="@dimen/_14sdp" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@drawable/gradient" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_3sdp"
+            app:cardElevation="@dimen/_2sdp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:gravity="top"
+                    android:text="@string/bestsellers"
+                    android:textSize="22dp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_forBestSellers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/grey" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/seemore"
+                    android:drawableRight="@drawable/ic_next"
+                    android:gravity="center_vertical"
+                    android:text="@string/see_more"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+
+</ScrollView>
+

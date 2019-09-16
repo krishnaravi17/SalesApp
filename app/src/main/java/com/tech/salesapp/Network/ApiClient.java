@@ -13,7 +13,9 @@ public class ApiClient {
     /*private static final String BASE_URL = "https://jsonplaceholder.typicode.com";*/
     //private static final String BASE_URL = "https://api.learn2crack.com/android/";
 
-    private static final String BASE_URL = "http://ciboapp.me/stockapi/api/";
+    //private static final String BASE_URL = "http://ciboapp.me/stockapi/api/";
+    private static final String BASE_URL = "http://192.168.43.221:7001/JavaAPIDemo/api/";
+
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {

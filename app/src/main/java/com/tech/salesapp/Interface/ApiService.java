@@ -1,11 +1,13 @@
 package com.tech.salesapp.Interface;
 
 import com.google.gson.JsonObject;
+import com.tech.salesapp.Entity.Login;
 import com.tech.salesapp.Entity.RetroPhoto;
 
 import java.util.List;
 import java.util.Map;
 
+import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -19,15 +21,15 @@ public interface ApiService {
     @GET("/photos")
     Call<List<RetroPhoto>> getAllPhotos();
 
-    /*@POST("v1/auth/login")
+  /*  @POST("v1/Login")
     Call<JsonObject> LoginFunction(@Query("username") String username, @Query("password") String password);*/
 
-    @POST("v1/auth/login")
+    /*@POST("v1/auth/login")
     @FormUrlEncoded
-    Call<JsonObject> LoginFunction(@FieldMap Map<String,String> params);
+    Call<JsonObject> LoginFunction(@FieldMap Map<String,String> params);*/
 
-   /* @POST("/v1/auth/login")
-    Single<Login> LoginFunction(@Query("username") String username, @Query("password") String password);*/
+    @POST("v1/Login")
+    Call<Login> LoginFunction(@Query("username") String username, @Query("password") String password);
 
 
     @GET("v1/products/list")

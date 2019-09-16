@@ -19,10 +19,13 @@ import com.tech.salesapp.Entity.Login;
 import com.tech.salesapp.Entity.ProductList;
 import com.tech.salesapp.Interface.ApiService;
 import com.tech.salesapp.Network.ApiClient;
+import com.tech.salesapp.Network.CallWebAPI;
+import com.tech.salesapp.Thread.LoginThread;
 import com.tech.salesapp.Utils.AndroidUtils;
 import com.tech.salesapp.Utils.AppProgress;
 import com.tech.salesapp.Utils.SharedDataPrefs;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +33,7 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import org.apache.http.client.ClientProtocolException;
 
 import static com.tech.salesapp.Interface.InterfaceForListdata.LSTProduct_List;
 
@@ -39,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText username, password;
     TextView tv_eye;
     int countforEye = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +66,13 @@ public class LoginActivity extends AppCompatActivity {
                 } else if (password != null && password.getText().toString().equalsIgnoreCase("")) {
                     Toast.makeText(LoginActivity.this, "Fill password first!!", Toast.LENGTH_SHORT).show();
                 } else {
-                    sendDetailsToServer(username.getText().toString(), password.getText().toString());
+                    //sendDetailsToServer(username.getText().toString(), password.getText().toString());
+                    LoginThread myTask = new LoginThread(LoginActivity.this,username.getText().toString(),password.getText().toString());
+                    myTask.execute();
+
+
+
+
                 }
 
 
@@ -92,19 +103,20 @@ public class LoginActivity extends AppCompatActivity {
             ApiService apiService = ApiClient.getRetrofitInstance().create(ApiService.class);
 
             final ProgressDialog dialog = AppProgress.showProgress(LoginActivity.this);
-            // Call<Login> call = apiService.LoginFunction("merchant2", "123456");
+
+            Call<Login> call = apiService.LoginFunction(username, password);
 
 
-            Map<String, String> params = new HashMap<String, String>();
+           /* Map<String, String> params = new HashMap<String, String>();
             params.put("username", username);
-            params.put("password", password);
+            params.put("password", password);*/
 
             //Call<JsonObject> call = apiService.LoginFunction(username,password);
-            Call<JsonObject> call = apiService.LoginFunction(params);
+            //Call<JsonObject> call = apiService.LoginFunction(params);
 
-            call.enqueue(new Callback<JsonObject>() {
+            call.enqueue(new Callback<Login>() {
                 @Override
-                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                public void onResponse(Call<Login> call, Response<Login> response) {
 
                     if (response != null) {
                         SharedPreferences shp = getSharedPreferences(SharedDataPrefs.Shared_Prefrence_Name, MODE_PRIVATE);
@@ -113,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         Toast.makeText(LoginActivity.this, "Logged In!!", Toast.LENGTH_LONG).show();
 
-                        if (response != null && response.body().get("message").toString().equalsIgnoreCase("\"Login is successfull!\"")) {
+                       /* if (response != null && response.body().get("message").toString().equalsIgnoreCase("\"Login is successfull!\"")) {
 
 
                             if (UserID.equalsIgnoreCase("0")) {
@@ -140,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             Toast.makeText(LoginActivity.this, "Login with correct credentials!!", Toast.LENGTH_SHORT).show();
                             getProductList(UserID);//testing
-                        }
+                        }*/
 
 
                     }
@@ -149,7 +161,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(Call<JsonObject> call, Throwable t) {
+                public void onFailure(Call<Login> call, Throwable t) {
                     //getProductList();
 
                     AppProgress.hideProgress(dialog);
@@ -163,7 +175,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
-
     private void getProductList(String UserID) {
 
         if (AndroidUtils.checkYourMobileDataConnection(LoginActivity.this)) {
@@ -172,7 +183,7 @@ public class LoginActivity extends AppCompatActivity {
 
             final ProgressDialog dialog = AppProgress.showProgress(LoginActivity.this);
 
-            Call<JsonObject> call = apiService.ProductData("2","1");//merchant id
+            Call<JsonObject> call = apiService.ProductData("2", "1");//merchant id
 
             call.enqueue(new Callback<JsonObject>() {
                 @Override
@@ -217,8 +228,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-
-
     private void findViewById() {
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         username = (EditText) findViewById(R.id.username);

@@ -22,6 +22,49 @@ public class Login {
         return gson.fromJson(serverjson,type);
     }
 
+    String ID,USERNAME,NAME,CITY;
+    int PASSWORD;
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getUSERNAME() {
+        return USERNAME;
+    }
+
+    public void setUSERNAME(String USERNAME) {
+        this.USERNAME = USERNAME;
+    }
+
+    public String getNAME() {
+        return NAME;
+    }
+
+    public void setNAME(String NAME) {
+        this.NAME = NAME;
+    }
+
+    public String getCITY() {
+        return CITY;
+    }
+
+    public void setCITY(String CITY) {
+        this.CITY = CITY;
+    }
+
+    public int getPASSWORD() {
+        return PASSWORD;
+    }
+
+    public void setPASSWORD(int PASSWORD) {
+        this.PASSWORD = PASSWORD;
+    }
+
     @SerializedName("id")
     @Expose
     private String id;
